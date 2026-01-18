@@ -7,22 +7,62 @@ import Script from 'next/script';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Riyaz Ahmed Khan | Revenue-First Sales Leader',
-  description: 'Portfolio of Riyaz Ahmed Khan, a Revenue-First Sales Leader with 9+ years of experience in B2B SaaS & EdTech, scaling teams and driving predictable revenue.',
+  metadataBase: new URL('https://theriyazkhan.com'), 
+  title: {
+    default: 'Riyaz Ahmed Khan | Revenue-First Sales Leader',
+    template: '%s | Riyaz Ahmed Khan',
+  },
+  description: 'Riyaz Ahmed Khan is a Revenue-First Sales Leader with 9+ years of experience in B2B SaaS & EdTech. Specializing in GTM strategy, pipeline scaling, and high-performance team leadership.',
+  keywords: [
+    'Riyaz Ahmed Khan',
+    'Sales Leader',
+    'Revenue Operations',
+    'GTM Strategy',
+    'B2B SaaS',
+    'EdTech',
+    'Sales Director',
+    'Pipeline Generation',
+    'Team Leadership',
+    'India Sales',
+    'Startup Growth',
+  ],
+  authors: [{ name: 'Riyaz Ahmed Khan' }],
+  creator: 'Riyaz Ahmed Khan',
   openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: 'https://theriyazkhan.com',
     title: 'Riyaz Ahmed Khan | Revenue-First Sales Leader',
-    description: 'Portfolio of Riyaz Ahmed Khan, a Revenue-First Sales Leader with 9+ years of experience in B2B SaaS & EdTech.',
+    description: 'Scale your revenue with data-backed sales strategies. Explore the portfolio of Riyaz Ahmed Khan.',
+    siteName: 'Riyaz Ahmed Khan',
     images: [
       {
-        url: '/riyaz.png', // Using the profile image as OG image
+        url: '/riyaz.png',
+        width: 1200,
+        height: 630,
+        alt: 'Riyaz Ahmed Khan - Sales Leader',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Riyaz Ahmed Khan | Revenue-First Sales Leader',
-    description: 'Portfolio of Riyaz Ahmed Khan, a Revenue-First Sales Leader with 9+ years of experience in B2B SaaS & EdTech.',
+    description: 'Scale your revenue with data-backed sales strategies. Explore the portfolio of Riyaz Ahmed Khan.',
     images: ['/riyaz.png'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: 'https://theriyazkhan.com',
   },
 };
 
