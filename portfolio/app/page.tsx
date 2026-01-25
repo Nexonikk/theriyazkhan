@@ -282,13 +282,16 @@ export default function Home() {
 
             <motion.div variants={heroItem} className="w-full max-w-4xl">
               <div className="flex flex-col items-start gap-6">
-                <div className="h-px w-24 bg-zinc-800"></div>
-                <div className="flex flex-wrap justify-start gap-x-5 gap-y-6">
+                <p className="text-slate-500 font-bold uppercase tracking-widest text-xs">
+                  Trusted by
+                </p>
+                <span className="h-px w-24 bg-zinc-800"></span>
+                <div className="flex flex-wrap justify-start gap-x-4 gap-y-5">
                   {["PhysicsWallah", "Scaler", "Vedantu", "Unacademy"].map(
                     (company) => (
                       <span
                         key={company}
-                        className="text-slate-400 font-black text-xl hover:text-blue-600 transition-colors cursor-default tracking-tighter"
+                        className="text-slate-400 font-black text-xs md:text-xl  hover:text-blue-600 transition-colors cursor-default tracking-tighter"
                       >
                         {company.toUpperCase()}
                       </span>
