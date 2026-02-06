@@ -7,7 +7,7 @@ import {
   Mail,
   Linkedin,
   Download,
-  Award,
+
   Phone,
   Rocket,
   ShieldCheck,
@@ -21,6 +21,7 @@ import {
   X,
   Target,
   Zap,
+  Award,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -158,7 +159,16 @@ export default function Home() {
                     key={item}
                     href={`#${item.toLowerCase()}`}
                     className="text-lg font-semibold text-slate-700 hover:text-blue-600"
-                    onClick={() => setIsMenuOpen(false)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsMenuOpen(false);
+                      setTimeout(() => {
+                        const element = document.getElementById(item.toLowerCase());
+                        if (element) {
+                          element.scrollIntoView({ behavior: "smooth", block: "start" });
+                        }
+                      }, 100);
+                    }}
                   >
                     {item}
                   </a>
@@ -385,40 +395,19 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-6">
-                {[
-                  { label: "MRR SCALE", value: "₹1.5Cr+", icon: Zap, color: "from-blue-500 to-blue-700" },
-                  { label: "EXPERIENCE", value: "9+ YRS", icon: Target, color: "from-indigo-500 to-indigo-700" },
-                  { label: "TRAINED", value: "250+", icon: Users, color: "from-blue-600 to-indigo-600" },
-                  { label: "CLIENTS", value: "1000+", icon: Award, color: "from-slate-700 to-slate-900" },
-                ].map((stat, i) => (
-                  <motion.div
-                    key={i}
-                    variants={fadeInUp}
-                    whileHover={{ 
-                      y: -5,
-                      boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-                    }}
-                    className="relative p-6 bg-white rounded-[2rem] flex flex-col justify-between aspect-square group cursor-pointer overflow-hidden border border-slate-100 transition-all shadow-md"
-                  >
-                    <div className={`absolute inset-0 bg-gradient-to-br ${stat.color} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                    <div className="relative z-10 flex justify-between items-start">
-                      <div className="p-3 bg-slate-50 rounded-2xl group-hover:bg-white transition-colors shadow-sm">
-                        <stat.icon className="w-6 h-6 text-slate-500 group-hover:text-blue-600 transition-colors" />
-                      </div>
-                      <div className={`w-3 h-3 rounded-full bg-gradient-to-br ${stat.color}`} />
-                    </div>
-                    <div className="relative z-10">
-                      <span className="text-xs font-black tracking-[0.2em] uppercase text-slate-400 mb-2 block group-hover:text-blue-600 transition-colors">
-                        {stat.label}
-                      </span>
-                      <span className="md:text-4xl text-2xl font-black text-slate-900 group-hover:translate-x-1 block transition-transform duration-300">
-                        {stat.value}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
+              <motion.div
+                variants={fadeInUp}
+                className="relative rounded-2xl overflow-hidden"
+              >
+                <video
+                  className="w-full max-w-md h-auto rounded-2xl mx-auto" 
+                  controls
+                  playsInline
+                >
+                  <source src="/intro_video.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </motion.div>
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
