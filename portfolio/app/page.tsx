@@ -539,7 +539,7 @@ export default function Home() {
             <div key={i} className="flex gap-12">
               {marqueeItems.map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5 transition-colors"
-                  style={{ color: "rgba(203,172,249,0.3)" }}>
+                  style={{ color: "rgba(175, 141, 226, 0.84)" }}>
                   <item.icon className="w-3.5 h-3.5" />
                   <span className="text-xs font-medium">{item.text}</span>
                 </div>
