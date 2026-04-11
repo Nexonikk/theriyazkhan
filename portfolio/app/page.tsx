@@ -598,26 +598,49 @@ export default function Home() {
             <div className="grid md:grid-cols-2 gap-3">
               {projects.map((project, index) => (
                 <GlowCard key={index} className="rounded-xl border border-white/[0.06]">
-                  <motion.a
-                    href={project.link} target="_blank" rel="noopener noreferrer"
-                    variants={fadeUp} transition={{ duration: 0.4 }}
-                    className="p-7 block group"
-                  >
-                    <div className="flex items-start justify-between mb-4">
-                      <span className="text-[10px] font-mono" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.tags[0]}</span>
-                      <ArrowUpRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </div>
-                    <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-white transition-colors">{project.title}</h3>
-                    <p className="text-xs font-semibold mb-5" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.metrics}</p>
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag) => (
-                        <span key={tag} className="px-2 py-0.5 text-[9px] rounded"
-                          style={{ color: "rgba(203, 172, 249, 0.9)", border: "1px solid rgba(139,92,246,0.3)", background: "rgba(139,92,246,0.1)" }}>
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.a>
+                  {project.link ? (
+                    <motion.a
+                      href={project.link} target="_blank" rel="noopener noreferrer"
+                      variants={fadeUp} transition={{ duration: 0.4 }}
+                      className="p-7 block group"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <span className="text-[10px] font-mono" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.tags[0]}</span>
+                        <ArrowUpRight className="w-4 h-4 text-white/60 group-hover:text-white transition-colors group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                      </div>
+                      <h3 className="text-sm font-semibold text-white mb-2 group-hover:text-white transition-colors">{project.title}</h3>
+                      <p className="text-xs font-semibold mb-3" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.metrics}</p>
+                      <p className="text-xs text-slate-400 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="px-2 py-0.5 text-[9px] rounded"
+                            style={{ color: "rgba(203, 172, 249, 0.9)", border: "1px solid rgba(139,92,246,0.3)", background: "rgba(139,92,246,0.1)" }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.a>
+                  ) : (
+                    <motion.div
+                      variants={fadeUp} transition={{ duration: 0.4 }}
+                      className="p-7 block group cursor-default"
+                    >
+                      <div className="flex items-start justify-between mb-4">
+                        <span className="text-[10px] font-mono" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.tags[0]}</span>
+                      </div>
+                      <h3 className="text-sm font-semibold text-white mb-2 transition-colors">{project.title}</h3>
+                      <p className="text-xs font-semibold mb-3" style={{ color: "rgba(203, 172, 249, 0.99)" }}>{project.metrics}</p>
+                      <p className="text-xs text-slate-400 leading-relaxed mb-5 line-clamp-3">{project.description}</p>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.tags.map((tag) => (
+                          <span key={tag} className="px-2 py-0.5 text-[9px] rounded"
+                            style={{ color: "rgba(203, 172, 249, 0.9)", border: "1px solid rgba(139,92,246,0.3)", background: "rgba(139,92,246,0.1)" }}>
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
                 </GlowCard>
               ))}
             </div>
@@ -666,7 +689,7 @@ export default function Home() {
 
             <motion.div variants={stagger} className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
               {tools.map((tool) => (
-                <GlowCard key={tool.name} className="rounded-xl border border-white/[0.06]">
+                <GlowCard key={tool.name} className="rounded-xl border border-white/[0.08]">
                   <motion.div variants={fadeUp} transition={{ duration: 0.35 }}
                     className="flex items-center gap-3 p-3 group">
                     {tool.image ? (

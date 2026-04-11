@@ -76,22 +76,42 @@ export const experience = [
 ];
 
 
-export const projects = [
+export interface Project {
+  title: string;
+  description: string;
+  metrics: string;
+  tags: string[];
+  link?: string;
+}
+
+export const projects: Project[] = [
     {
-      title: "Market Research",
+      title: "ICP Enrichment Workflow — Clay + Apollo",
       description:
-        "Comprehensive analysis of EdTech trends and competitor strategies to identify underexploited market segments.",
-      metrics: "Identified $50M+ TAM opportunity",
-      tags: ["Strategy", "Analysis"],
-      link: "https://drive.google.com/drive/folders/16dexE1UotkgoZ7cV0ZTHvYwPxepKg57f?usp=sharing",
+        "Built end-to-end B2B SaaS prospecting workflow targeting Series A–B companies by technographic fit, hiring signals, and funding recency. Enriched contact data with multi-source waterfall logic for high-accuracy outreach.",
+      metrics: "Waterfall Enrichment Logic",
+      tags: ["Clay", "Apollo", "ICP Research", "Signal-Based Targeting"],
     },
     {
-      title: "Sales Playbook",
+      title: "GTM Tools Stack Tracker — 40+ Tools Mapped",
       description:
-        "Developed and implemented a standardized sales playbook for a 50+ member team, reducing ramp-up time by 40%.",
-      metrics: "35% Increase in Win Rate",
-      tags: ["Process", "Enablement"],
-      link: "https://docs.google.com/document/d/1l07lOW9kXs5ucuil3AutyHMKFrZlDwZ_OvCbSFeqRNA/edit?usp=sharing",
+        "Comprehensive reference tracker mapping the modern B2B SaaS GTM landscape across enrichment, sequencing, deliverability, dialers, and intent data. Adopted as reference by program mentors at HireForSkillz.",
+      metrics: "40+ GTM Tools Mapped",
+      tags: ["GTM Strategy", "RevOps", "Tool Evaluation", "Sales Infrastructure"],
+    },
+    {
+      title: "Lead Allocation System Redesign — 96% Faster",
+      description:
+        "Redesigned manual lead allocation at PhysicsWallah. Built routing logic by lead source, geography, and counselor capacity. Cut response time from 120 minutes to 5 minutes across a 250+ counselor org.",
+      metrics: "96% Faster (120→5 min)",
+      tags: ["Sales Ops", "Process Design", "Lead Routing", "Revenue Operations"],
+    },
+    {
+      title: "Sales Playbook & Training System",
+      description:
+        "Designed and delivered sales enablement curricula across multiple organizations — training 1,000+ professionals with 80% placement success rate and 4.8+ NPS. Built onboarding playbooks reducing ramp-up time.",
+      metrics: "80% Placement Rate",
+      tags: ["Sales Enablement", "Playbook Design", "Team Training", "Onboarding"],
     },
   ];
 
@@ -108,4 +128,16 @@ export const tools = [
     { name: "Crunchbase", image: "/crunchbase.avif" },
     { name: "Builtwith", image: "/builtwith.webp" },
     { name: "Canva", image: "/canva.jpg" },
+    { name: "Instantly", image: "/instantly.webp" },
+    { name: "Smartlead", image: "/smartlead.webp" },
+    { name: "Lemlist", image: "/lemlist.webp" },
+    { name: "Heyreach", image: "/heyreach.webp" },
+    { name: "NeverBounce", image: "/neverbounce.webp" },
+    { name: "Findymail", image: "/findymail.webp" },
+    { name: "Prospeo", image: "/prospeo.webp" },
+    { name: "Google Sheets", image: "/googlesheets.webp" },
+    { name: "Slack", image: "/slack.webp" },
+    { name: "Claude AI", image: "/claude.webp" },
+    { name: "ChatGPT", image: "/chatgpt.webp" },
+    { name: "Perplexity", image: "/perplexity.webp" },
   ];
