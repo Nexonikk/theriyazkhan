@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riyaz Khan | GTM Engineer - Outbound Systems for B2B SaaS</title>
+<meta name="description" content="Riyaz Khan builds outbound systems for B2B SaaS companies - Clay enrichment pipelines, signal-based targeting, AI-driven copy, and multi-channel sequencing. GTM Engineer at Omnibound AI.">
+<meta property="og:title" content="Riyaz Khan | GTM Engineer - Outbound Systems for B2B SaaS">
+<meta property="og:description" content="I don't run campaigns. I build the systems that run them.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://theriyazkhan.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;450;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E1116;
+  --ink-2:#141821;
+  --ink-3:#1A1F2A;
+  --line:#232A36;
+  --line-2:#2E3744;
+  --text:#EDEFF2;
+  --text-2:#9AA4B2;
+  --text-3:#5C6573;
+  --signal:#5EE6A8;
+  --signal-dim:#2C8C63;
+  --amber:#E8B339;
+  --amber-dim:#8A6A1E;
+  --radius:10px;
+  --radius-lg:14px;
+  --maxw:1180px;
+  --font-display:'Space Grotesk',sans-serif;
+  --font-body:'Inter',sans-serif;
+  --font-mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ink);
+  color:var(--text);
+  font-family:var(--font-body);
+  font-size:16px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--signal);color:var(--ink)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px}
+
+/* ===== ambient layers ===== */
+.backdrop{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  opacity:0.14;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 0%,transparent 78%);
+  -webkit-mask-image:radial-gradient(ellipse 90% 70% at 50% 0%,#000 0%,transparent 78%);
+}
+.aurora{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aurora span{position:absolute;border-radius:50%;filter:blur(90px);opacity:.16}
+.aurora .a1{width:520px;height:520px;background:var(--signal);top:-180px;right:-120px;animation:float1 18s ease-in-out infinite}
+.aurora .a2{width:420px;height:420px;background:var(--amber);top:40%;left:-160px;opacity:.08;animation:float2 22s ease-in-out infinite}
+.aurora .a3{width:360px;height:360px;background:var(--signal);bottom:-140px;left:40%;opacity:.07;animation:float1 26s ease-in-out infinite reverse}
+@keyframes float1{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-40px,50px) scale(1.12)}}
+@keyframes float2{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(60px,-40px) scale(1.08)}}
+#particles{position:fixed;inset:0;z-index:0;pointer-events:none}
+.content{position:relative;z-index:1}
+
+/* ===== nav ===== */
+nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(12px);
+  background:rgba(14,17,22,0.72);border-bottom:1px solid transparent;transition:border-color .3s}
+nav.scrolled{border-bottom-color:var(--line)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:18px 32px;display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:var(--font-mono);font-size:15px;font-weight:500;letter-spacing:1px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 0 0 var(--signal);animation:beat 2.6s ease-in-out infinite}
+@keyframes beat{0%,100%{box-shadow:0 0 0 0 rgba(94,230,168,.5)}50%{box-shadow:0 0 0 5px rgba(94,230,168,0)}}
+.nav-links{display:flex;gap:30px;font-size:14px;color:var(--text-2)}
+.nav-links a{position:relative;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--signal);transition:width .25s}
+.nav-links a:hover::after{width:100%}
+.nav-cta{font-family:var(--font-mono);font-size:13px;padding:8px 16px;border:1px solid var(--line-2);border-radius:8px;color:var(--text);transition:all .2s}
+.nav-cta:hover{border-color:var(--signal);color:var(--signal)}
+.menu-btn{display:none;background:none;border:none;color:var(--text);font-size:24px;cursor:pointer}
+
+/* ===== section scaffolding ===== */
+section{padding:120px 0;position:relative}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--signal);
+  display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--signal-dim)}
+h2.sec-title{font-family:var(--font-display);font-size:clamp(28px,4vw,42px);font-weight:600;letter-spacing:-1px;line-height:1.1;margin-bottom:18px}
+.sec-lead{color:var(--text-2);font-size:17px;max-width:560px;line-height:1.7}
+
+/* ===== HERO ===== */
+.hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding-top:60px;padding-bottom:80px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.hero-tag{font-family:var(--font-mono);font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text-2);margin-bottom:28px;display:flex;align-items:center;gap:10px}
+.hero-tag b{color:var(--signal);font-weight:500}
+.hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(34px,5.2vw,60px);line-height:1.04;letter-spacing:-2px;margin-bottom:26px}
+.hero h1 .ln{display:block;overflow:hidden}
+.hero h1 .ln>span{display:inline-block;transform:translateY(105%);animation:lineUp .9s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .ln:nth-child(1)>span{animation-delay:.15s}
+.hero h1 .ln:nth-child(2)>span{animation-delay:.28s}
+.hero h1 .ln:nth-child(3)>span{animation-delay:.41s}
+@keyframes lineUp{to{transform:translateY(0)}}
+.hero h1 .run{color:var(--signal);position:relative;white-space:nowrap}
+.hero-tag,.hero-sub,.hero-name,.hero-ctas{opacity:0;animation:fadeUp .8s cubic-bezier(.16,1,.3,1) forwards}
+.hero-tag{animation-delay:.05s}
+.hero-sub{animation-delay:.55s}
+.hero-name{animation-delay:.66s}
+.hero-ctas{animation-delay:.77s}
+.pipe{animation:fadeUp 1s cubic-bezier(.16,1,.3,1) .5s forwards;opacity:0}
+.hero-rail{animation:fadeUp .8s cubic-bezier(.16,1,.3,1) .9s forwards;opacity:0}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.hero-sub{font-size:18px;color:var(--text-2);line-height:1.7;max-width:480px;margin-bottom:14px}
+.hero-name{font-family:var(--font-mono);font-size:14px;color:var(--text);letter-spacing:1px;margin-bottom:36px;display:flex;align-items:center;gap:10px}
+.hero-name::before{content:'';width:18px;height:1px;background:var(--amber)}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{font-family:var(--font-body);font-size:15px;font-weight:500;padding:13px 24px;border-radius:10px;cursor:pointer;transition:all .2s;display:inline-flex;align-items:center;gap:9px;border:1px solid transparent}
+.btn-primary{background:var(--signal);color:#08291B}
+.btn-primary:hover{background:#74efb6;transform:translateY(-1px)}
+.btn-ghost{background:transparent;border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--signal);color:var(--signal)}
+.btn svg{width:16px;height:16px}
+
+/* ===== hero pipeline viz (the signature) ===== */
+.pipe{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:22px;position:relative;overflow:hidden}
+.pipe-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.pipe-title{font-family:var(--font-mono);font-size:12px;color:var(--text-2);letter-spacing:1px}
+.pipe-live{font-family:var(--font-mono);font-size:11px;color:var(--signal);display:flex;align-items:center;gap:6px}
+.pipe-live .ring{width:6px;height:6px;border-radius:50%;background:var(--signal);animation:beat 1.8s infinite}
+.pipe-stage{display:flex;align-items:center;gap:14px;padding:13px 0;border-top:1px solid var(--line);position:relative}
+.pipe-stage:first-of-type{border-top:none}
+.stage-ico{width:34px;height:34px;border-radius:8px;background:var(--ink-3);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:var(--text-2)}
+.stage-ico svg{width:17px;height:17px}
+.stage-meta{flex:1;min-width:0}
+.stage-name{font-size:14px;font-weight:500;color:var(--text)}
+.stage-desc{font-family:var(--font-mono);font-size:11px;color:var(--text-3)}
+.stage-val{font-family:var(--font-mono);font-size:12px;color:var(--signal);white-space:nowrap}
+.stage-val.gated{color:var(--amber)}
+/* travelling pulse */
+.pipe-spine{position:absolute;left:38px;top:64px;bottom:22px;width:1px;background:linear-gradient(var(--line-2),var(--line));z-index:0}
+.pulse-dot{position:absolute;left:36px;width:5px;height:5px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px 2px rgba(94,230,168,.6);z-index:2;animation:travel 5.5s cubic-bezier(.6,.05,.4,.95) infinite}
+@keyframes travel{0%{top:64px;opacity:0}8%{opacity:1}92%{opacity:1}100%{top:calc(100% - 26px);opacity:0}}
+
+.hero-rail{margin-top:54px;border-top:1px solid var(--line);padding-top:22px;display:flex;gap:40px;flex-wrap:wrap;font-family:var(--font-mono);font-size:12px;color:var(--text-3)}
+.hero-rail .hi{color:var(--signal)}
+.hero-rail span{display:flex;align-items:center;gap:8px}
+
+/* ===== stats row ===== */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;margin-top:10px}
+.stat{background:var(--ink);padding:26px 24px;transition:background .3s}
+.stat:hover{background:var(--ink-2)}
+.stat .n{font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-1px;color:var(--text);margin-bottom:6px}
+.stat .n .u{color:var(--signal);font-size:20px}
+.stat .l{font-size:13px;color:var(--text-2);line-height:1.45}
+
+/* ===== about ===== */
+.about-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:54px;align-items:start}
+.about-body p{color:var(--text-2);font-size:17px;line-height:1.8;margin-bottom:20px}
+.about-body p.lead{color:var(--text);font-size:20px;font-weight:450}
+.about-pull{border-left:2px solid var(--amber);padding:4px 0 4px 22px;margin:30px 0}
+.about-pull p{color:var(--text);font-size:18px;line-height:1.65;font-family:var(--font-display);font-weight:400}
+.about-side{position:sticky;top:100px}
+.side-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-bottom:12px;transition:border-color .25s}
+.side-card:hover{border-color:var(--line-2)}
+.side-card .n{font-family:var(--font-display);font-size:24px;font-weight:600;color:var(--signal);letter-spacing:-.5px}
+.side-card .l{font-size:13px;color:var(--text-2);margin-top:3px}
+.about-code{margin-top:0;background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;font-family:var(--font-mono);font-size:13px;line-height:1.85;color:var(--text-2);position:relative;overflow:hidden}
+.about-code::after{content:'';position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,var(--signal),transparent);animation:scanline 3.5s linear infinite}
+@keyframes scanline{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.about-code .c{color:var(--text-3)}
+.about-code .g{color:var(--signal)}
+.about-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.chip{font-family:var(--font-mono);font-size:11.5px;color:var(--text-2);background:var(--ink-2);border:1px solid var(--line);border-radius:20px;padding:7px 13px;display:flex;align-items:center;gap:7px;transition:all .25s}
+.chip:hover{border-color:var(--signal);color:var(--text);transform:translateY(-1px)}
+.chip .cd{width:5px;height:5px;border-radius:50%;background:var(--signal-dim)}
+.chip:hover .cd{background:var(--signal)}
+
+/* ===== systems ===== */
+.sys-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:46px}
+.sys-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:26px;transition:all .25s;position:relative;overflow:hidden}
+.sys-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(135deg,var(--signal),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:0;transition:opacity .25s}
+.sys-card:hover{transform:translateY(-3px);border-color:transparent}
+.sys-card:hover::before{opacity:1}
+.sys-ico{width:42px;height:42px;border-radius:10px;background:var(--ink-3);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--signal);margin-bottom:18px}
+.sys-ico svg{width:20px;height:20px}
+.sys-card h3{font-family:var(--font-display);font-size:18px;font-weight:500;margin-bottom:9px;letter-spacing:-.3px}
+.sys-card p{font-size:14.5px;color:var(--text-2);line-height:1.6}
+.sys-banner{margin-top:16px;background:linear-gradient(90deg,var(--ink-2),var(--ink-2));border:1px solid var(--signal-dim);border-radius:var(--radius);padding:18px 22px;display:flex;align-items:center;gap:14px}
+.sys-banner .ic{color:var(--signal);flex-shrink:0}
+.sys-banner .ic svg{width:22px;height:22px;display:block}
+.sys-banner p{font-size:15px;color:var(--text)}
+.sys-banner b{color:var(--signal);font-weight:600}
+
+/* ===== stack ===== */
+.stack-group{margin-top:38px}
+.stack-label{font-family:var(--font-mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.stack-label::after{content:'';flex:1;height:1px;background:var(--line)}
+.stack-row{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.tool{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 10px;display:flex;flex-direction:column;align-items:center;gap:10px;transition:all .2s;cursor:default}
+.tool:hover{border-color:var(--line-2);background:var(--ink-3);transform:translateY(-2px)}
+.tool .ti{width:52px;height:52px;display:flex;align-items:center;justify-content:center;color:var(--text);opacity:1}
+.tool .ti svg{width:48px;height:48px}
+.tool .tn{font-size:13px;color:var(--text-2);text-align:center}
+.tool img{width:80px;height:70px;object-fit:contain}
+
+/* ===== career timeline ===== */
+.tl{margin-top:46px;position:relative;padding-left:30px}
+.tl::before{content:'';position:absolute;left:4px;top:8px;bottom:8px;width:1px;background:linear-gradient(var(--signal-dim),var(--line) 30%,var(--line))}
+.tl-item{position:relative;padding-bottom:34px}
+.tl-item:last-child{padding-bottom:0}
+.tl-item .node{position:absolute;left:-30px;top:5px;width:9px;height:9px;border-radius:50%;background:var(--line-2);border:2px solid var(--ink)}
+.tl-item.current .node{background:var(--signal);box-shadow:0 0 0 0 var(--signal);animation:beat 2.6s infinite}
+.tl-date{font-family:var(--font-mono);font-size:12px;color:var(--text-3);margin-bottom:5px}
+.tl-role{font-size:16px;font-weight:600;color:var(--text);margin-bottom:5px}
+.tl-role .co{color:var(--text-2);font-weight:400}
+.tl-desc{font-size:14.5px;color:var(--text-2);line-height:1.6;max-width:640px}
+.tl-item.current .tl-role{color:var(--signal)}
+
+/* ===== resources ===== */
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:46px}
+.res-card{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);padding:24px;transition:all .25s;display:flex;flex-direction:column;min-height:200px}
+.res-card:hover{border-color:var(--signal);transform:translateY(-3px)}
+.res-ico{width:40px;height:40px;border-radius:10px;background:var(--ink-3);border:1px solid var(--line-2);display:flex;align-items:center;justify-content:center;color:var(--amber);margin-bottom:16px}
+.res-ico svg{width:19px;height:19px}
+.res-card h3{font-family:var(--font-display);font-size:17px;font-weight:500;margin-bottom:8px}
+.res-card p{font-size:14px;color:var(--text-2);line-height:1.55;flex:1}
+.res-link{font-family:var(--font-mono);font-size:12.5px;color:var(--signal);margin-top:16px;display:flex;align-items:center;gap:6px;transition:gap .2s}
+.res-card:hover .res-link{gap:11px}
+.res-link svg{width:14px;height:14px}
+
+/* ===== certs ===== */
+.cert-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:46px}
+.cert{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:all .2s;display:flex;flex-direction:column;gap:10px}
+.cert:hover{border-color:var(--line-2);background:var(--ink-3)}
+.cert .badge{font-family:var(--font-mono);font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--text-3)}
+.cert .name{font-size:14px;color:var(--text);line-height:1.4;font-weight:500}
+.cert .issuer{font-size:12.5px;color:var(--text-2);margin-top:auto}
+
+/* ===== contact ===== */
+.contact{position:relative}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:center}
+.contact h2{font-family:var(--font-display);font-size:clamp(30px,4.5vw,46px);font-weight:600;letter-spacing:-1.5px;line-height:1.08;margin-bottom:18px}
+.contact-lead{color:var(--text-2);font-size:17px;line-height:1.7;margin-bottom:32px;max-width:420px}
+.contact-methods{display:flex;flex-direction:column;gap:12px}
+.cm{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;display:flex;align-items:center;gap:14px;transition:all .2s}
+.cm:hover{border-color:var(--signal);transform:translateX(4px)}
+.cm .ic{width:38px;height:38px;border-radius:9px;background:var(--ink-3);display:flex;align-items:center;justify-content:center;color:var(--signal);flex-shrink:0}
+.cm .ic svg{width:18px;height:18px}
+.cm .lbl{font-size:12px;color:var(--text-3);font-family:var(--font-mono)}
+.cm .val{font-size:14.5px;color:var(--text)}
+.contact-ctas{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap}
+
+/* terminal card for contact right side */
+.term{background:var(--ink-2);border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;font-family:var(--font-mono);font-size:13px}
+.term-bar{background:var(--ink-3);padding:11px 16px;display:flex;align-items:center;gap:7px;border-bottom:1px solid var(--line)}
+.term-bar .d{width:10px;height:10px;border-radius:50%}
+.term-bar .d1{background:#E55B56}.term-bar .d2{background:#E8B339}.term-bar .d3{background:#5EE6A8}
+.term-bar .t{margin-left:8px;font-size:11px;color:var(--text-3)}
+.term-body{padding:20px;line-height:1.9}
+.term-body .c{color:var(--text-3)}
+.term-body .k{color:var(--amber)}
+.term-body .s{color:var(--signal)}
+.term-body .v{color:var(--text)}
+.term-body .cursor{display:inline-block;width:8px;height:15px;background:var(--signal);vertical-align:middle;animation:blink 1.1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ===== footer ===== */
+footer{border-top:1px solid var(--line);padding:30px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;font-size:13px;color:var(--text-3);font-family:var(--font-mono)}
+.foot-links{display:flex;gap:22px}
+.foot-links a{transition:color .2s}
+.foot-links a:hover{color:var(--signal)}
+
+/* ===== reveal animation ===== */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(.2,.6,.2,1),transform .7s cubic-bezier(.2,.6,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* ===== responsive ===== */
+@media(max-width:920px){
+  .hero-grid,.about-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
+  .about-side{position:static}
+  .sys-grid,.res-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stack-row{grid-template-columns:repeat(3,1fr)}
+  .cert-grid{grid-template-columns:repeat(2,1fr)}
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  section{padding:84px 0}
+  .hero{min-height:auto}
+}
+@media(max-width:520px){
+  .wrap,.nav-inner{padding-left:20px;padding-right:20px}
+  .stack-row{grid-template-columns:repeat(2,1fr)}
+  .hero-rail{gap:18px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<div class="backdrop"></div>
+<div class="aurora"><span class="a1"></span><span class="a2"></span><span class="a3"></span></div>
+<canvas id="particles"></canvas>
+<div class="content">
+
+<nav id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand"><span class="dot"></span>riyaz_khan</a>
+    <div class="nav-links">
+      <a href="#about">about</a>
+      <a href="#systems">systems</a>
+      <a href="#stack">stack</a>
+      <a href="#career">career</a>
+      <a href="#resources">resources</a>
+    </div>
+    <a href="#contact" class="nav-cta">get in touch</a>
+    <button class="menu-btn" aria-label="menu" onclick="document.querySelector('.nav-links').style.display='flex'">≡</button>
+  </div>
+</nav>
+
+<a id="top"></a>
+<!-- HERO -->
+<header class="hero wrap">
+  <div class="hero-grid">
+    <div>
+      <div class="hero-tag">GTM Engineer <span style="color:var(--text-3)">/</span> <b>Outbound Systems</b></div>
+      <h1><span class="ln"><span>I don't run campaigns.</span></span><span class="ln"><span>I build the systems</span></span><span class="ln"><span>that <span class="run">run them.</span></span></span></h1>
+      <p class="hero-sub">Clay enrichment pipelines, signal-based targeting, AI-driven copy, and multi-channel sequencing - architected from zero, owned end to end.</p>
+      <div class="hero-name">Riyaz Khan &nbsp;·&nbsp; a decade leading revenue teams before this</div>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#systems">See what I build
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost" href="#" data-resume>Resume
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M5 21h14"/></svg></a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/the-riyaz-khan/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: live pipeline -->
+    <div class="pipe" aria-hidden="true">
+      <div class="pipe-head">
+        <span class="pipe-title">outbound_pipeline.run</span>
+        <span class="pipe-live"><span class="ring"></span>live</span>
+      </div>
+      <div class="pipe-spine"></div>
+      <div class="pulse-dot"></div>
+      <div class="pipe-stage">
+        <div class="stage-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18M3 12h18M3 17h12"/></svg></div>
+        <div class="stage-meta"><div class="stage-name">Source</div><div class="stage-desc">apollo · apify (g2)</div></div>
+        <div class="stage-val">verified</div>
+      </div>
+      <div class="pipe-stage">
+        <div class="stage-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 3H2l8 9.5V19l4 2v-8.5L22 3z"/></svg></div>
+        <div class="stage-meta"><div class="stage-name">Gate</div><div class="stage-desc">icp · freshness · ownership</div></div>
+        <div class="stage-val gated">0-credit</div>
+      </div>
+      <div class="pipe-stage">
+        <div class="stage-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+        <div class="stage-meta"><div class="stage-name">Enrich</div><div class="stage-desc">claygent · gpt-4.1-mini</div></div>
+        <div class="stage-val">&lt;1 credit/row</div>
+      </div>
+      <div class="pipe-stage">
+        <div class="stage-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 20h4L18 10l-4-4L4 16v4zM14 6l4 4"/></svg></div>
+        <div class="stage-meta"><div class="stage-name">Write</div><div class="stage-desc">3 emails · formula-based</div></div>
+        <div class="stage-val">validated</div>
+      </div>
+      <div class="pipe-stage">
+        <div class="stage-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></div>
+        <div class="stage-meta"><div class="stage-name">Send</div><div class="stage-desc">smartlead + heyreach</div></div>
+        <div class="stage-val">95%+ open</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-rail">
+    <span><span class="hi">▹</span> clay.enrich()</span>
+    <span><span class="hi">▹</span> smartlead.send()</span>
+    <span><span class="hi">▹</span> heyreach.sync()</span>
+    <span><span class="hi">▹</span> claude_code via terminal</span>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about" class="wrap">
+  <div class="eyebrow reveal">About me</div>
+  <h2 class="sec-title reveal">The engineer behind<br>the outbound</h2>
+  <div class="about-grid" style="margin-top:38px">
+    <div class="about-body reveal">
+      <p class="lead">Most people want to scale what already works. I am built for what comes before that.</p>
+      <p>After a decade of building and leading revenue teams - managing large sales pods, getting promoted at every company I worked at, and closing deals myself - I kept finding myself most engaged when I was building the system from zero. The routing logic. The enrichment workflow. The sequence that did not exist yesterday and booked three meetings by morning.</p>
+      <p>That realization changed my direction. For the last year, I have been building outbound systems for B2B SaaS companies from scratch - now as GTM Engineer at Omnibound AI, architecting Clay-based outbound infrastructure for US and Canada markets.</p>
+      <div class="about-pull">
+        <p>I have seen both sides of the table. A decade on the sales floor - managing teams, closing deals, watching pipelines break in real time. Now I build the systems that prevent that from happening.</p>
+      </div>
+      <p>For automation and API integrations, I work with Claude Code via terminal at an advanced level - connecting tools that do not natively talk to each other, without needing a developer.</p>
+    </div>
+    <div class="about-side reveal">
+      <div class="about-code">
+<span class="c">// operating principle</span><br>
+gate.every(<span class="g">paid_agent</span>)<br>
+&nbsp;&nbsp;.behind(<span class="g">zero_credit_formula</span>)<br>
+<span class="c">// no credits on bad rows</span>
+      </div>
+      <div class="about-chips">
+        <span class="chip"><i class="cd"></i>Clay architecture</span>
+        <span class="chip"><i class="cd"></i>Signal-based targeting</span>
+        <span class="chip"><i class="cd"></i>Claude Code · terminal</span>
+        <span class="chip"><i class="cd"></i>API integrations</span>
+        <span class="chip"><i class="cd"></i>Deliverability infra</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMS -->
+<section id="systems" class="wrap">
+  <div class="eyebrow reveal">Systems built</div>
+  <h2 class="sec-title reveal">Currently at Omnibound AI</h2>
+  <p class="sec-lead reveal">GTM Engineer - Revenue Operations, building Clay-based outbound infrastructure for US and Canada B2B SaaS markets.</p>
+  <div class="sys-grid">
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <h3>Clay enrichment pipeline</h3>
+      <p>ICP qualification, data freshness gating, and company ownership validation - all controlled by zero-credit formula conditions to keep enrichment cost at minimum.</p>
+    </div>
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M12 8V4M9 4h6M9 14h.01M15 14h.01"/></svg></div>
+      <h3>Signal-based Claygent agents</h3>
+      <p>gpt-4.1-mini agents for competitor intelligence, buyer question generation, and live AI citation checks - clean structured output at under 1 credit per row.</p>
+    </div>
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M22 6l-10 7L2 6M2 6h20v12H2V6z"/></svg></div>
+      <h3>Three-email outreach sequence</h3>
+      <p>Written entirely as formulas inside Clay - deterministic copy variation per company, two angles routed by send status, no AI-template feel.</p>
+    </div>
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4zM9 12l2 2 4-4"/></svg></div>
+      <h3>Automated copy guardrails</h3>
+      <p>Name validator, competitor sanity check, category clean, and copy validator - scanning every email before it reaches the sending queue.</p>
+    </div>
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="5" cy="6" r="2.5"/><circle cx="19" cy="6" r="2.5"/><circle cx="12" cy="18" r="2.5"/><path d="M5 8.5v3a2 2 0 002 2h10a2 2 0 002-2v-3M12 13.5v2"/></svg></div>
+      <h3>Multi-channel outbound</h3>
+      <p>Smartlead email sequences connected with HeyReach LinkedIn outreach across rotating mailboxes - deliverability managed via Dynadot and Inboxkit.</p>
+    </div>
+    <div class="sys-card reveal">
+      <div class="sys-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+      <h3>Lead sourcing and mapping</h3>
+      <p>Apollo and Apify (G2 scraping) for target databases - deduplicated, ICP-qualified, and email-verified before feeding into live campaigns.</p>
+    </div>
+  </div>
+  <div class="sys-banner reveal">
+    <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8M21 7v5M21 7h-5"/></svg></span>
+    <p><b>95%+ open rate on Day 1</b> of campaign launch across US and Canada B2B SaaS marketing leaders.</p>
+  </div>
+</section>
+
+<!-- STACK -->
+<section id="stack" class="wrap">
+  <div class="eyebrow reveal">Stack</div>
+  <h2 class="sec-title reveal">What I build with</h2>
+  <p class="sec-lead reveal">Enrichment, sequencing, signal detection, and automation - the full GTM engineering stack.</p>
+
+  <div class="stack-group reveal">
+    <div class="stack-label">Enrichment &amp; data</div>
+    <div class="stack-row" id="row-enrich"></div>
+  </div>
+  <div class="stack-group reveal">
+    <div class="stack-label">Sequencing &amp; deliverability</div>
+    <div class="stack-row" id="row-seq"></div>
+  </div>
+  <div class="stack-group reveal">
+    <div class="stack-label">Automation &amp; AI</div>
+    <div class="stack-row" id="row-ai"></div>
+  </div>
+</section>
+
+<!-- CAREER -->
+<section id="career" class="wrap">
+  <div class="eyebrow reveal">Career</div>
+  <h2 class="sec-title reveal">Career timeline</h2>
+  <p class="sec-lead reveal">9 years building and leading revenue teams - now building the systems they run on.</p>
+  <div class="tl" id="timeline"></div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources" class="wrap">
+  <div class="eyebrow reveal">Resources</div>
+  <h2 class="sec-title reveal">Built for the GTM community</h2>
+  <p class="sec-lead reveal">Reference material I built and use - shared in case it helps others doing this work.</p>
+  <div class="res-grid">
+    <a class="res-card reveal" href="https://docs.google.com/spreadsheets/u/1/d/16mSOT94Baxswdo0fETLsJcvLq1MXEH8DYYdgAWpkVRM/edit?gid=1713928267#gid=1713928267" target="_blank" rel="noopener">
+      <div class="res-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3v4h4M14 3H6v18h12V7M9 13h6M9 17h6M9 9h2"/></svg></div>
+      <h3>GTM tool stack tracker</h3>
+      <p>65+ tools across enrichment, sequencing, deliverability, and intent data - the reference I built and use myself.</p>
+      <span class="res-link">view sheet <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+    </a>
+    <a class="res-card reveal" href="https://docs.google.com/document/d/1dkV2W0Pk56cEyvoXR-KytFyO_fhLqtntPhxhRK521mk/edit?tab=t.0" target="_blank" rel="noopener">
+      <div class="res-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h13l3 3v13H4V4zM9 8h6M9 12h6M9 16h4"/></svg></div>
+      <h3>GTM playbook</h3>
+      <p>How I approach campaign builds end to end - from ICP definition to sequence design to launch.</p>
+      <span class="res-link">view playbook <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+    </a>
+    <a class="res-card reveal" href="https://drive.google.com/drive/folders/16dexE1UotkgoZ7cV0ZTHvYwPxepKg57f" target="_blank" rel="noopener">
+      <div class="res-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M12 18v3M9 21h6"/></svg></div>
+      <h3>Research breakdowns</h3>
+      <p>Deep dives on GTM tools, AI search shifts, and outbound trends - presented as working decks.</p>
+      <span class="res-link">view decks <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H8M17 7v9"/></svg></span>
+    </a>
+  </div>
+
+  <div class="eyebrow reveal" style="margin-top:80px">Certifications</div>
+  <div class="cert-grid" id="certs"></div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact wrap">
+  <div class="contact-inner">
+    <div>
+      <div class="eyebrow reveal">Contact</div>
+      <h2 class="reveal">Let's talk about what you're building.</h2>
+      <p class="contact-lead reveal">Always happy to talk shop about GTM systems, Clay, and outbound.</p>
+      <div class="contact-methods reveal">
+        <a class="cm" href="mailto:khanriyaz.160621@gmail.com">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span>
+          <span><span class="lbl">email</span><br><span class="val">khanriyaz.160621@gmail.com</span></span>
+        </a>
+        <a class="cm" href="https://wa.me/918052254321" target="_blank" rel="noopener">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M21 11.5a8.5 8.5 0 01-12.5 7.5L3 21l2-5.5A8.5 8.5 0 1121 11.5z"/></svg></span>
+          <span><span class="lbl">whatsapp / call</span><br><span class="val">+91 8052254321</span></span>
+        </a>
+      </div>
+      <div class="contact-ctas reveal">
+        <a class="btn btn-primary" href="https://drive.google.com/file/d/1LOsPzIokYWDCeYzxlM_UsqOlPX27djHy/view" data-resume>Download resume</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/the-riyaz-khan/" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+    <div class="term reveal">
+      <div class="term-bar"><span class="d d1"></span><span class="d d2"></span><span class="d d3"></span><span class="t">riyaz@gtm ~ %</span></div>
+      <div class="term-body">
+<span class="c"># whoami</span><br>
+<span class="k">role</span>: <span class="v">GTM Engineer @ Omnibound AI</span><br>
+<span class="k">builds</span>: <span class="s">outbound systems, end to end</span><br>
+<span class="k">background</span>: <span class="v">9y B2B sales leadership</span><br>
+<span class="k">open_to</span>: <span class="v">GTME · RevOps · founding SDR/AE</span><br>
+<span class="k">region</span>: <span class="v">remote · US-focused</span><br>
+<br>
+<span class="c"># next</span><br>
+<span class="s">$</span> reach_out<span class="cursor"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Riyaz Khan</span>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/the-riyaz-khan/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:khanriyaz.160621@gmail.com">Email</a>
+      <a href="#top">Back to top</a>
+    </div>
+  </div>
+</footer>
+
+</div>
+<script>
+/* ===== data-driven sections ===== */
+const ICON=(p)=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">${p}</svg>`;
+/* real logos swapped in */
+const G={
+  clay:'<img src="./assests/Clay.png" alt="Clay">',
+  apollo:'<img src="./assests/Apollo.png" alt="Apollo">',
+  apify:'<img src="./assests/Apify.png" alt="Apify">',
+  theirstack:'<img src="./assests/Theirstack.png" alt="Theirstack">',
+  findymail:'<img src="./assests/Findymail.png" alt="Findymail">',
+  prospeo:'<img src="./assests/Prospeo.png" alt="Prospeo">',
+  smartlead:'<img src="./assests/Smartlead.png" alt="Smartlead">',
+  heyreach:'<img src="./assests/Heyreach.png" alt="Heyreach">',
+  inboxkit:'<img src="./assests/Inboxkit.png" alt="Inboxkit">',
+  dynadot:'<img src="./assests/Dynadot.png" alt="Dynadot">',
+  trigify:'<img src="./assests/Trigify.png" alt="Trigify">',
+  sumble:'<img src="./assests/Sumble.png" alt="Sumble">',
+  claudecode:'<img src="./assests/Claude Code.png" alt="Claude Code">',
+  antigravity:'<img src="./assests/Google Antigravity.png" alt="Google Antigravity">',
+  n8n:'<img src="./assests/n8n.png" alt="n8n">',
+  chatgpt:'<img src="./assests/chatgpt.webp" alt="ChatGPT">',
+  sheets:'<img src="./assests/sheet.webp" alt="Sheets">',
+  slack:'<img src="./assests/slack.webp" alt="Slack">'
+};
+
+const stacks={
+  'row-enrich':[['Clay','clay'],['Apollo','apollo'],['Apify','apify'],['Theirstack','theirstack'],['Findymail','findymail'],['Prospeo','prospeo']],
+  'row-seq':[['Smartlead','smartlead'],['Heyreach','heyreach'],['Inboxkit','inboxkit'],['Dynadot','dynadot'],['Trigify','trigify'],['Sumble','sumble']],
+  'row-ai':[['Claude Code','claudecode'],['Google Antigravity','antigravity'],['n8n','n8n'],['ChatGPT','chatgpt'],['Sheets','sheets'],['Slack','slack']]
+};
+for(const [id,tools] of Object.entries(stacks)){
+  document.getElementById(id).innerHTML=tools.map(([n,k])=>{
+    let content = G[k] || '';
+    if (content.indexOf('<img') === -1) {
+      content = ICON(content);
+    }
+    return `<div class="tool"><span class="ti" data-tool="${k}">${content}</span><span class="tn">${n}</span></div>`;
+  }).join('');
+}
+
+const timeline=[
+  ['May 2026 — Present','GTM Engineer · Revenue Operations','Omnibound AI','Architecting Clay-based outbound infrastructure for US and Canada B2B SaaS markets - enrichment, signal-based copy, multi-channel sequencing.',true],
+  ['Oct 2025 — May 2026','Freelance GTM Consultant · B2B SaaS','HireForSkillz','Built outbound systems for US and UK B2B SaaS clients - 28 qualified ICP meetings booked, 400-500 emails per week.',false],
+  ['Nov 2022 — Oct 2025','Manager','PW (PhysicsWallah)','Led a 25-member sales pod generating Rs.1.5 Cr+ monthly revenue. Redesigned lead routing - 120 to 5 minute response time. Hired and mentored 250+ professionals.',false],
+  ['Apr 2021 — Nov 2022','Sales Manager','Scaler by InterviewBit','Managed sales pods generating Rs.13L+ monthly recurring revenue per associate. Built onboarding playbooks and training bootcamps.',false],
+  ['Dec 2019 — Mar 2021','Senior Sales Trainer','Relevel by Unacademy','Trained 1,000+ sales professionals across cohorts of 80+ - 80% placement rate, 4.8+ NPS.',false],
+  ['Sep 2018 — Nov 2019','Business Development Manager','Vedantu','Led JEE/NEET-focused sales teams - ranked 3rd PAN India in revenue, 150% increase in monthly revenue.',false],
+  ['Jun 2017 — Aug 2018','Area Sales Manager','Unity Pharma','Managed a 15-member B2B medical sales team - Rs.1.5 Cr+ in annual institutional sales.',false]
+];
+document.getElementById('timeline').innerHTML=timeline.map(([d,r,co,desc,cur])=>
+  `<div class="tl-item ${cur?'current':''} reveal"><span class="node"></span>
+   <div class="tl-date">${d}</div>
+   <div class="tl-role">${r} <span class="co">· ${co}</span></div>
+   <div class="tl-desc">${desc}</div></div>`).join('');
+
+const certs=[
+  ['LinkedIn Learning','Writing Emails People Want to Read','Issued 2025'],
+  ['LinkedIn Learning','Lead Generation Foundations','Issued 2025'],
+  ['LinkedIn Learning','B2B Sales Foundations','Issued 2025'],
+  ['LinkedIn Learning','Cold Calling Mastery','Issued 2025'],
+  ['HubSpot Academy','Inbound Sales Certified','Valid 2025-2027'],
+  ['HubSpot Academy','Sales Hub Software Certified','Valid 2025-2026'],
+  ['Anthropic','Claude Code 101','Issued Apr 2026'],
+  ['HireForSkillz','B2B SaaS GTM & RevOps','Practicum']
+];
+document.getElementById('certs').innerHTML=certs.map(([iss,name,date])=>
+  `<div class="cert reveal"><span class="badge">${iss}</span><span class="name">${name}</span><span class="issuer">${date}</span></div>`).join('');
+
+/* resume placeholder - developer: set real URL */
+document.querySelectorAll('[data-resume]').forEach(a=>{a.setAttribute('href','https://docs.google.com/document/d/1WZX2do6vM7_i038IseancrInBg1g1auCfKUZhW8yaXY/edit?usp=sharing');a.setAttribute('target','_blank');a.setAttribute('rel','noopener');});
+
+/* nav scrolled state */
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>20));
+
+/* staggered reveal on scroll */
+const io=new IntersectionObserver((es)=>es.forEach(e=>{
+  if(e.isIntersecting){
+    const sibs=[...e.target.parentElement.querySelectorAll(':scope > .reveal')];
+    const i=sibs.indexOf(e.target);
+    e.target.style.transitionDelay=(i>0?Math.min(i*70,350):0)+'ms';
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+  }
+}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ambient particle network - respects reduced motion */
+const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!reduce){
+  const cv=document.getElementById('particles'),cx=cv.getContext('2d');
+  let w,h,pts;
+  const DPR=Math.min(devicePixelRatio||1,2);
+  function size(){w=cv.width=innerWidth*DPR;h=cv.height=innerHeight*DPR;cv.style.width=innerWidth+'px';cv.style.height=innerHeight+'px';
+    const n=Math.min(46,Math.floor(innerWidth/34));
+    pts=Array.from({length:n},()=>({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.12*DPR,vy:(Math.random()-.5)*.12*DPR}));
+  }
+  size();addEventListener('resize',size);
+  let mx=-999,my=-999;
+  addEventListener('mousemove',e=>{mx=e.clientX*DPR;my=e.clientY*DPR});
+  addEventListener('mouseleave',()=>{mx=-999;my=-999});
+  function draw(){
+    cx.clearRect(0,0,w,h);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+    }
+    const maxD=130*DPR;
+    for(let i=0;i<pts.length;i++){
+      for(let j=i+1;j<pts.length;j++){
+        const a=pts[i],b=pts[j],dx=a.x-b.x,dy=a.y-b.y,d=Math.hypot(dx,dy);
+        if(d<maxD){const o=(1-d/maxD)*.5;cx.strokeStyle='rgba(94,230,168,'+o*.5+')';cx.lineWidth=DPR*.6;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke();}
+      }
+      const a=pts[i],dxm=a.x-mx,dym=a.y-my,dm=Math.hypot(dxm,dym);
+      if(dm<170*DPR){const o=(1-dm/(170*DPR))*.6;cx.strokeStyle='rgba(232,179,57,'+o*.5+')';cx.lineWidth=DPR*.7;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(mx,my);cx.stroke();}
+      cx.fillStyle='rgba(94,230,168,'+(dm<170*DPR?.7:.32)+')';cx.beginPath();cx.arc(a.x,a.y,DPR*1.3,0,7);cx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  draw();
+}
+
+/* magnetic buttons */
+if(!reduce){
+  document.querySelectorAll('.btn').forEach(b=>{
+    b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();const x=e.clientX-r.left-r.width/2;const y=e.clientY-r.top-r.height/2;b.style.transform=`translate(${x*.12}px,${y*.18}px)`;});
+    b.addEventListener('mouseleave',()=>b.style.transform='');
+  });
+}
+</script>
+</body>
+</html>
